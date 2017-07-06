@@ -7,7 +7,7 @@ The function should return 0 if the two strings are the same, and the sum of the
 This problem is similar to edit distance, although here characters can't be changed or added.
 
 ## Examples
-- Comparing "bard" to "bar" should return 2
+- Comparing "bard" to "bar" should return 1
 - Comparing "bored" to "cord" should return 3
 - Comparing "pillow" to "pillow" should return 0
 - Comparing "tram" to "sees" should return 8
