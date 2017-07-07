@@ -4,6 +4,7 @@ The deletion distance between "${same}a" and "${diff}a" is the deletion distance
 The deletion distance between "${same}a" and "${diff}b" is the deletion distance between same and diff + 1.
 Using these, we can generate a map of the distances between any two given strings' substrings and just return
 the value in the far lower right.
+However, to save space, only two rows of the map are worked with at a time.
 */
 
 function arrayOfZeros(length) {
