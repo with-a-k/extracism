@@ -1,4 +1,4 @@
-var assignest = require('nest-assign');
+var assignest = require('./nest-assign');
 
 describe('assignest', function() {
   //All cases use JSON.stringify, since objects are passed by reference
@@ -25,5 +25,17 @@ describe('assignest', function() {
   it('adds new properties on reference properties', function() {
     expect(JSON.stringify(assignest({ a: { x: 3 } }, { a: { y: 5 } }))).
       toEqual(JSON.stringify({ a: { x: 3, y: 5 } }));
+  });
+
+  it('errors if the target is not an object', function() {
+    let trial = function() {JSON.stringify(assignest(5, { a: { y: 5 } }))};
+    expect(trial).
+      toThrowError(TypeError, 'Target needs to be an object.');
+  });
+
+  it('errors if a source is not an object', function() {
+    let trial = function() {JSON.stringify(assignest({ a: { y: 5 } }, 8))};
+    expect(trial).
+      toThrowError(TypeError, /All sources need to be objects./);
   });
 });
